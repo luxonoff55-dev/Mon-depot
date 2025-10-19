@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="media-container">
+    <h1>Bienvenue</h1>
+    <p>Veuillez scanner le QR code pour gagner vos 5€</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/team" alt="QR Code pour rejoindre la team" width="300" height="300">
+
+    <p>Veuillez scanner le QR code pour tenter de gagner un lot.</p>
+    <video id="webcamFeed" autoplay playsinline></video>
+    <p class="vip-status">Groupe VIP certifié depuis 2018.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
