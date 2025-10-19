@@ -8,16 +8,30 @@
 </head>
 <body>
   <div class="media-container">
-    <h1>Bienvenue</h1>
-    <p>Veuillez scanner le QR code pour gagner vos 5€</p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/team" alt="QR Code pour rejoindre la team" width="300" height="300">
+    <!-- Colonne gauche : texte + QR -->
+    <div class="media-left">
+      <h1>Bienvenue</h1>
+      <p class="lead">Veuillez scanner le QR code pour gagner vos 5€</p>
+      <div class="qr-frame">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/team"
+             alt="QR Code pour rejoindre la team" width="300" height="300">
+      </div>
+      <div class="badge">Offre limitée • 5€</div>
+    </div>
 
-    <p id="message">Veuillez scanner le QR code pour tenter de gagner un lot.</p>
-    <video id="webcamFeed" autoplay playsinline></video>
-     <p class="vip-status">Groupe VIP certifié depuis 2018.</p>
+    <!-- Colonne droite : webcam + message -->
+    <div class="media-right">
+      <div class="video-wrap">
+        <video id="webcamFeed" autoplay playsinline></video>
+        <!-- Le script ajoutera automatiquement un canvas overlay et un scanline -->
+      </div>
+      <p id="message">Veuillez scanner le QR code pour tenter de gagner un lot.</p>
+      <p class="vip-status">Groupe VIP certifié depuis 2018.</p>
+    </div>
   </div>
+
+  <!-- Librairie pour la détection QR + ton script -->
   <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-<script src="script.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
