@@ -1,0 +1,213 @@
+/* style.css — Design premium néon + layout responsive */
+
+/* Reset léger */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+
+:root{
+  --bg1: #071029;
+  --bg2: #061431;
+  --accent: #2be7ff;
+  --accent-2: #8f5cff;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.03);
+  --white: #f7fbff;
+  --muted: rgba(255,255,255,0.8);
+  --radius: 16px;
+}
+
+/* Background gradient + animated waves */
+body {
+  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(143,92,255,0.14), transparent 10%),
+              radial-gradient(1000px 500px at 90% 90%, rgba(43,231,255,0.09), transparent 8%),
+              linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+/* Main container */
+.media-container {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+  align-items: start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow:
+    0 10px 30px rgba(3,9,23,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Left column: QR and instructions */
+.media-left {
+  text-align: center;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.media-left h1 {
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  text-shadow: 0 6px 30px rgba(43,231,255,0.06);
+}
+
+.media-left p.lead {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Neon framed QR */
+.qr-frame {
+  display: inline-block;
+  padding: 12px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow:
+    0 8px 40px rgba(43,231,255,0.06),
+    0 0 28px rgba(143,92,255,0.02);
+  transition: transform .25s ease;
+}
+.qr-frame:hover { transform: translateY(-6px) rotate(-0.5deg); }
+
+/* Badge neon */
+.badge {
+  display:inline-block;
+  margin-top:12px;
+  padding:8px 14px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(43,231,255,0.12), rgba(143,92,255,0.08));
+  color: var(--white);
+  font-weight:600;
+  font-size:0.9rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+
+/* Right column: webcam and messages */
+.media-right {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Video container with overlay */
+.video-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+  border: 1px dashed rgba(255,255,255,0.04);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The visible video */
+#webcamFeed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Canvas overlay for scan box and detection */
+#overlay {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+/* Message box */
+#message {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(43,231,255,0.06), rgba(143,92,255,0.04));
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(3,9,23,0.4);
+}
+
+/* Success state */
+.success {
+  background: linear-gradient(90deg, rgba(16,185,129,0.12), rgba(127,249,237,0.06));
+  border: 1px solid rgba(127,249,237,0.12);
+  color: #dffbf6;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.45);
+}
+
+/* Actions */
+.actions {
+  display:flex;
+  gap:10px;
+  margin-top: 8px;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #02111a;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(43,231,255,0.12);
+  transition: transform .14s ease, opacity .14s ease;
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: none;
+}
+
+/* VIP small */
+.vip-status {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* small device responsiveness */
+@media (max-width: 880px) {
+  .media-container { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
+  .media-left, .media-right { padding: 12px; }
+  .media-left { order: 1; }
+  .media-right { order: 2; }
+}
+
+/* subtle animated scanline in overlay */
+.scanline {
+  position:absolute;
+  left:0; right:0;
+  height:2px;
+  background: linear-gradient(90deg, transparent, rgba(43,231,255,0.35), transparent);
+  animation: scan 2.2s linear infinite;
+  opacity: 0.85;
+}
+@keyframes scan {
+  0% { top: 10%; transform: translateY(0) scaleX(1); }
+  100% { top: 90%; transform: translateY(0) scaleX(1); }
+}
